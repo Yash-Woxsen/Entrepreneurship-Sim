@@ -13,12 +13,14 @@ public class HandleTextQuery : MonoBehaviour
     {
         inputTextFieldForQuery.onSubmit.AddListener(SendQuery);
         server.OnTextQueryResponseReceived += OnServerResponseReceived;
+        server.OnAudioQueryResponseReceived += OnWhisperServerAudioResponseReceived;
     }
 
     private void OnDisable()
     {
         inputTextFieldForQuery.onSubmit.RemoveListener(SendQuery);
         server.OnTextQueryResponseReceived -= OnServerResponseReceived;
+        server.OnAudioQueryResponseReceived -= OnWhisperServerAudioResponseReceived;
     }
 
     public void SendQuery(string textInInputField)
@@ -41,5 +43,12 @@ public class HandleTextQuery : MonoBehaviour
         string textResponse = server.serverResponseObject.response;
         // Log the parsed data
         textAreaForChatHistory.text += "<color=#00FF00>SERVER</color>: " + textResponse + "\n";
+    }
+    
+    public void OnWhisperServerAudioResponseReceived()
+    {
+        string whisperResponse = server.whisperResponseObject.transcription;
+        textAreaForChatHistory.text += "<color=#FF0000>PLAYER</color>: " + whisperResponse + "\n";
+        server.SendTextQuery(whisperResponse);
     }
 }
