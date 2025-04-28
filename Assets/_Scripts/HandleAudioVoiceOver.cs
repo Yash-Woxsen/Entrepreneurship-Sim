@@ -17,14 +17,7 @@ public class HandleAudioVoiceOver : MonoBehaviour
 
     private void Update()
     {
-        if (audioSource.isPlaying)
-        {
-            isAudioPlaying = true;
-        }
-        else
-        {
-            isAudioPlaying = false;
-        }
+        isAudioPlaying = audioSource.isPlaying;
     }
 
     private void OnDisable()

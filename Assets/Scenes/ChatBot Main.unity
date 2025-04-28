@@ -313,12 +313,15 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 98886a896680a7e4498d4446a305a3a6, type: 2}
     - target: {fileID: 5866666021909216657, guid: 6aaf19a4dd3cfe44492d5b2576bd3a68, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6aaf19a4dd3cfe44492d5b2576bd3a68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1118135125}
   m_SourcePrefab: {fileID: 100100000, guid: 6aaf19a4dd3cfe44492d5b2576bd3a68, type: 3}
 --- !u!1 &107810930
 GameObject:
@@ -708,6 +711,51 @@ MonoBehaviour:
   webServer: {fileID: 1855389302}
   audioURL: 
   isAudioPlaying: 0
+--- !u!1 &209119654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209119656}
+  - component: {fileID: 209119655}
+  m_Layer: 0
+  m_Name: MIC REC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &209119655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209119654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52f1c08de4ec78479f9e6f5ae3ae856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webServer: {fileID: 1855389302}
+--- !u!4 &209119656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209119654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04892224, y: 0.8278065, z: 0.029485524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214654069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2332,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097755975}
   m_CullTransparentMesh: 1
+--- !u!1 &1118135122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6aaf19a4dd3cfe44492d5b2576bd3a68, type: 3}
+  m_PrefabInstance: {fileID: 104393285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1118135123 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6aaf19a4dd3cfe44492d5b2576bd3a68, type: 3}
+  m_PrefabInstance: {fileID: 104393285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1118135125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118135122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21303b13a5001b64ca9096e5195fa7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioVoiceOverHandler: {fileID: 137626432}
+  animator: {fileID: 1118135123}
 --- !u!1 &1138681736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3978,3 +4050,4 @@ SceneRoots:
   - {fileID: 1855389303}
   - {fileID: 137626431}
   - {fileID: 104393285}
+  - {fileID: 209119656}

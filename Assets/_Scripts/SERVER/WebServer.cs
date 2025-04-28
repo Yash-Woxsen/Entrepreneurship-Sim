@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
 using System.Text;
+using System.IO;
 using UnityEngine.Events;
 
 namespace _Scripts.SERVER
@@ -70,39 +71,44 @@ namespace _Scripts.SERVER
         }
         
     #endregion
+    
+    
+    
+        // Call this function to send an audio file
+        public void SendAudioQuery(string filePath)
+        {
+            StartCoroutine(PostAudioQuery(filePath));
+        }
+        
+        IEnumerator PostAudioQuery(string filePath)
+        {
+            string url = "http://10.7.0.28:5505/whisper";
+            byte[] audioData = File.ReadAllBytes(filePath);
+        
+            // Create form and add audio file
+            WWWForm form = new WWWForm();
+            form.AddBinaryData("file", audioData, Path.GetFileName(filePath), "audio/wav");
+        
+            UnityWebRequest request = UnityWebRequest.Post(url, form);
+        
+            yield return request.SendWebRequest();
+        
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Response: " + request.downloadHandler.text);
+            }
+            else
+            {
+                Debug.LogError("Error: " + request.error);
+            }
+        }
+    
     }
     
     
     
     
-    // Call this function to send an audio file
-    // public void SendAudioQuery(string filePath)
-    // {
-    //     StartCoroutine(PostAudioQuery(filePath));
-    // }
-    //
-    // IEnumerator PostAudioQuery(string filePath)
-    // {
-    //     string url = "http://10.7.0.28:5505/whisper";
-    //     byte[] audioData = File.ReadAllBytes(filePath);
-    //
-    //     // Create form and add audio file
-    //     WWWForm form = new WWWForm();
-    //     form.AddBinaryData("file", audioData, Path.GetFileName(filePath), "audio/wav");
-    //
-    //     UnityWebRequest request = UnityWebRequest.Post(url, form);
-    //
-    //     yield return request.SendWebRequest();
-    //
-    //     if (request.result == UnityWebRequest.Result.Success)
-    //     {
-    //         Debug.Log("Response: " + request.downloadHandler.text);
-    //     }
-    //     else
-    //     {
-    //         Debug.LogError("Error: " + request.error);
-    //     }
-    // }
+    
     
     
     [System.Serializable]
