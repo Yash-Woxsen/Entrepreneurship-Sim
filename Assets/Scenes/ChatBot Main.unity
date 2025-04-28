@@ -706,6 +706,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 137626430}
   webServer: {fileID: 1855389302}
+  audioURL: 
+  isAudioPlaying: 0
 --- !u!1 &214654069
 GameObject:
   m_ObjectHideFlags: 0

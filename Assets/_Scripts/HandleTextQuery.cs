@@ -35,20 +35,10 @@ public class HandleTextQuery : MonoBehaviour
             Debug.LogWarning("Input field is empty.");
         }
     }
-    
-    public event UnityAction OnServerResponseReceivedEvent;
     public void OnServerResponseReceived()
     {
-        // Parse JSON into ServerResponse object
-        
-
         // Store values in variables
         string textResponse = server.serverResponseObject.response;
-        string[] suggestions = server.serverResponseObject.suggestions;
-        string audioUrl = server.serverResponseObject.audio_url;
-        
-        OnServerResponseReceivedEvent?.Invoke();
-        
         // Log the parsed data
         textAreaForChatHistory.text += "<color=#00FF00>SERVER</color>: " + textResponse + "\n";
     }
