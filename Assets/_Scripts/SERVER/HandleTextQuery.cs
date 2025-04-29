@@ -29,7 +29,7 @@ public class HandleTextQuery : MonoBehaviour
         if (!string.IsNullOrEmpty(text))
         {
             server.SendTextQuery(text);
-            textAreaForChatHistory.text += "<color=#FF0000>PLAYER</color>: " + text + "\n";
+            textAreaForChatHistory.text += "<color=#F87297>USER</color>: " + text + "\n";
             inputTextFieldForQuery.text = "";
         }
         else
@@ -42,13 +42,13 @@ public class HandleTextQuery : MonoBehaviour
         // Store values in variables
         string textResponse = server.serverResponseObject.response;
         // Log the parsed data
-        textAreaForChatHistory.text += "<color=#00FF00>SERVER</color>: " + textResponse + "\n";
+        textAreaForChatHistory.text += "<color=#33FFB6>MENTOR</color>: " + textResponse + "\n";
     }
     
     public void OnWhisperServerAudioResponseReceived()
     {
         string whisperResponse = server.whisperResponseObject.transcription;
-        textAreaForChatHistory.text += "<color=#FF0000>PLAYER</color>: " + whisperResponse + "\n";
+        textAreaForChatHistory.text += "<color=#F87297>USER</color>: " + whisperResponse + "\n";
         server.SendTextQuery(whisperResponse);
     }
 }

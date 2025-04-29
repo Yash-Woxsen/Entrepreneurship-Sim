@@ -34,7 +34,7 @@ public class MicRec : MonoBehaviour
         }
     }
 
-    void StartRecording()
+    public void StartRecording()
     {
         if (micDevice == null)
             return;
@@ -44,7 +44,7 @@ public class MicRec : MonoBehaviour
         Debug.Log("Recording started...");
     }
 
-    void StopRecording()
+    public void StopRecording()
     {
         if (!isRecording)
             return;
