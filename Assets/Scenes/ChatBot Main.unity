@@ -4426,7 +4426,6 @@ MonoBehaviour:
   whisperResponseObject:
     transcription: 
   timeTakenToReceiveResponseFromServer: 0
-  serverUrl: http://10.7.0.28:5000/whisper
 --- !u!4 &1855389303
 Transform:
   m_ObjectHideFlags: 0

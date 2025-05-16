@@ -32,7 +32,7 @@ namespace _Scripts.SERVER
 
         IEnumerator PostTextQuery(string text)
         {
-            string url = "http://10.7.0.28:5505/ask";
+            string url = "http://10.106.29.202:5505/ask";
 
             // Escape special characters in the text to avoid JSON errors
             string escapedText = EscapeJsonString(text);
@@ -80,7 +80,7 @@ namespace _Scripts.SERVER
     #region AUDIO QUERY HANDLER
 
 
-        public string serverUrl = "http://10.7.0.28:5505/whisper";
+        string serverUrl = "http://10.106.29.202:5505/whisper";
         private string selectedLanguage = "en";
         public event UnityAction OnAudioQueryResponseReceived;
 
